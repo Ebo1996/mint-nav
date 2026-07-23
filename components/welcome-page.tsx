@@ -160,11 +160,11 @@ export function WelcomePage({ language, onExplore, onNavigateOffice }: WelcomePa
         </svg>
       </div>
 
-      <div className="relative mx-auto grid h-full max-w-[1480px] grid-cols-1 items-center gap-6 px-5 py-8 md:grid-cols-[40%_60%] md:gap-10 md:px-12 md:py-0">
+      <div className="relative mx-auto grid h-full max-w-[1480px] grid-cols-1 items-center gap-4 px-5 py-6 md:grid-cols-[40%_60%] md:gap-8 md:px-10 md:py-0">
 
         {/* ── LEFT: Hero copy ── */}
         <section className="flex flex-col items-start justify-center">
-          <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-primary shadow-sm">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-primary shadow-sm">
             <span className="relative flex size-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/50" />
               <span className="relative inline-flex size-2 rounded-full bg-primary" />
@@ -180,11 +180,11 @@ export function WelcomePage({ language, onExplore, onNavigateOffice }: WelcomePa
             </span>
           </h1>
 
-          <p className="mt-4 max-w-[400px] text-[15px] leading-relaxed text-muted-foreground">
+          <p className="mt-3.5 max-w-[400px] text-[15px] leading-relaxed text-muted-foreground">
             {tr.welcomeDesc}
           </p>
 
-          <div className="mt-5 flex flex-wrap gap-2.5">
+          <div className="mt-4 flex flex-wrap gap-2.5">
             {[
               { value: "2", label: tr.buildings, onClick: onExplore },
               { value: "10+", label: tr.offices, onClick: onExplore },
@@ -205,7 +205,7 @@ export function WelcomePage({ language, onExplore, onNavigateOffice }: WelcomePa
           <button
             type="button"
             onClick={onExplore}
-            className="group relative mt-7 inline-flex items-center gap-3 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-[15px] font-bold text-primary-foreground shadow-[0_12px_40px_-10px_rgba(8,105,118,0.5)] ring-1 ring-white/10 transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_16px_50px_-10px_rgba(8,105,118,0.6)] active:scale-[0.98]"
+            className="group relative mt-6 inline-flex items-center gap-3 overflow-hidden rounded-full bg-primary px-7 py-3.5 text-[15px] font-bold text-primary-foreground shadow-[0_12px_40px_-10px_rgba(8,105,118,0.5)] ring-1 ring-white/10 transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_16px_50px_-10px_rgba(8,105,118,0.6)] active:scale-[0.98]"
           >
             <span className="pointer-events-none absolute inset-0 -translate-x-full bg-white/15 transition-transform duration-500 group-hover:translate-x-0" />
             {tr.explorePortal}
@@ -219,18 +219,18 @@ export function WelcomePage({ language, onExplore, onNavigateOffice }: WelcomePa
             {/* top accent */}
             <div className="h-1 w-full bg-gradient-to-r from-primary via-[#c08a2e] to-primary" />
 
-            <div className="px-5 pb-5 pt-4 md:px-6 md:pt-5">
+            <div className="px-4 pb-4 pt-3 md:px-5 md:pt-4">
               {/* ── Minister: centered hero card ── */}
-              <div className="mb-4 overflow-hidden rounded-2xl border border-[#c08a2e]/30 bg-gradient-to-br from-primary/5 via-accent/40 to-[#c08a2e]/8 shadow-sm">
+              <div className="mb-3 overflow-hidden rounded-2xl border border-[#c08a2e]/30 bg-gradient-to-br from-primary/5 via-accent/40 to-[#c08a2e]/8 shadow-sm">
                 <div className="h-0.5 w-full bg-gradient-to-r from-primary/40 via-[#c08a2e] to-primary/40" />
-                <div className="flex flex-col items-center gap-3 px-6 py-5 text-center">
+                <div className="flex flex-col items-center gap-2.5 px-5 py-4 text-center">
                   <div className="relative">
                     <div className="rounded-2xl p-[3px]" style={{ background: "linear-gradient(135deg, #086976, #c08a2e)" }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={ministerLeader.photo || "/placeholder.svg"}
                         alt={tr.leaderNames.minister}
-                        className="size-40 rounded-xl object-cover object-top shadow-md md:size-48"
+                        className="size-36 rounded-xl object-cover object-top shadow-md md:size-44"
                         crossOrigin="anonymous"
                       />
                     </div>
@@ -246,13 +246,9 @@ export function WelcomePage({ language, onExplore, onNavigateOffice }: WelcomePa
                 </div>
               </div>
 
-              {/* divider with label */}
-              <div className="relative mb-3 flex items-center gap-2">
-                <div className="h-px flex-1 bg-border/60" />
-                <span className="shrink-0 rounded-full border border-border bg-muted/60 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                  {tr.reportingOfficers}
-                </span>
-                <div className="h-px flex-1 bg-border/60" />
+              {/* Simple divider without text */}
+              <div className="relative mb-2.5 flex items-center">
+                <div className="h-px flex-1 bg-border/40" />
               </div>
 
               {/* ── 5 reporting officers ── */}
