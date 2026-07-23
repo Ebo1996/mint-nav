@@ -19,7 +19,7 @@ export function PortalFooter({ language }: PortalFooterProps) {
       <div className="pointer-events-none absolute -right-10 top-1/2 size-28 -translate-y-1/2 rounded-full bg-white/5 blur-2xl" />
 
       <p className="relative text-[10px] sm:text-[11px] md:text-xs font-medium text-header-foreground/75 text-center sm:text-left">
-        © {year} {language === "am" ? "የፈጠራና ቴክኖሎጂ ሚኒስቴር (ሚኒስቴር)።" : "Ministry of Innovation and Technology (MInT)."}{" "}
+        © {year} {language === "am" ? "የኢኖቬሽንና ቴክኖሎጂ ሚኒስቴር።" : "Ministry of Innovation and Technology (MInT)."}{" "}
         {tr.allRightsReserved}
       </p>
 

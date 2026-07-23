@@ -109,7 +109,7 @@ export const t = {
     // Header
     backToHome: "ወደ መነሻ ተመለስ",
     digitalOfficeNav: "ዲጂታል ቢሮ\nናቪጌሽን ፖርታል",
-    officialPortal: "ይፋዊ ፖርታል",
+    navigatorPortal: "ዲጂታል ቢሮ አመላካች ሲስተም  ",
 
     // Footer
     allRightsReserved: "መብቱ በሕግ የተጠበቀ ነው።",
