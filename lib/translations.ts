@@ -117,10 +117,10 @@ export const t = {
 
     // Welcome page
     ministryWayfinding: "የሚኒስቴር መምሪያ ስርዓት",
-    findAnyOffice: "የማንን ቢሮ",
-    anywhereInMint: "ይፈልጋሉ?",
+    findAnyOffice: "ወዴት,
+    anywhereInMint: "መሄድ ይፈልጋሉ?",
     welcomeDesc:
-      "በፈጠራና ቴክኖሎጂ ሚኒስቴር ውስጥ ያሉ ቢሮዎችን፣ ክፍሎችን፣ ሥራ አስኪያጆችን፣ የክፍል ቁጥሮችን እና ህንጻዎችን በቅጽበት ይፈልጉ።",
+      "የኢኖቬሽንና ቴክኖሎጂ ሚኒስቴር  ውስጥ ያሉ ቢሮዎችን፣ ክፍሎችን፣ ሥራ አስኪያጆችን፣ የክፍል ቁጥሮችን እና ህንጻዎችን በቅጽበት ይፈልጉ።",
     buildings: "ህንጻዎች",
     offices: "ቢሮዎች",
     departments: "ክፍሎች",
@@ -134,7 +134,7 @@ export const t = {
 
     // Leader titles on welcome page
     leaderTitles: {
-      minister: "የፈጠራና ቴክኖሎጂ ሚኒስትር",
+      minister: "የኢኖቬሽንና ቴክኖሎጂ ሚኒስቴር ",
       researchInnovation: "ሚኒስትር ዴኤታ፣ ምርምርና ፈጠራ",
       ictDigital: "ሚኒስትር ዴኤታ፣ አይሲቲና ዲጂታል ኢኮኖሚ",
       advisory: "አማካሪ ሚኒስትር ዴኤታ",
@@ -155,7 +155,7 @@ export const t = {
     whereToGo: "ወዴት",
     likeToGo: "መሄድ ይፈልጋሉ?",
     portalDesc:
-      "በፈጠራና ቴክኖሎጂ ሚኒስቴር ውስጥ ያሉ ቢሮዎችን፣ ክፍሎችን፣ ሥራ አስኪያጆችን፣ የክፍል ቁጥሮችን እና ህንጻዎችን ይፈልጉ።",
+      "የኢኖቬሽንና ቴክኖሎጂ ሚኒስቴር ሚኒስትር  ውስጥ ያሉ ቢሮዎችን፣ ክፍሎችን፣ ሥራ አስኪያጆችን፣ የክፍል ቁጥሮችን እና ህንጻዎችን ይፈልጉ።",
     quickSearch: "ፈጣን ፍለጋ",
     viewOffices: "ቢሮዎችን ይመልከቱ",
     searchPlaceholder: "በክፍል፣ ቢሮ፣ ሥራ አስኪያጅ፣ የክፍል ቁጥር ወይም የቢሮ ቁጥር ይፈልጉ...",
