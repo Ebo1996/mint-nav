@@ -260,7 +260,7 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
                         </div>
                         <div className="min-w-0">
                           <p className="text-xs font-semibold text-muted-foreground">
-                            {language === "am" ? "ሥራ አስኪያጅ" : "Manager"}
+                            {tr.manager}
                           </p>
                           <p className="truncate text-sm font-bold text-foreground">
                             {deptItem.detail.managerName}

@@ -107,7 +107,7 @@ function ReportingCard({
       </div>
       {/* Name */}
       <p className="text-[12px] font-bold leading-tight text-foreground">{name}</p>
-      <p className="text-[10px] font-medium leading-tight text-muted-foreground line-clamp-2">{title}</p>
+      <p className="text-[10px] font-bold leading-tight text-muted-foreground line-clamp-2">{title}</p>
       {leader.clickable && (
         <span className="inline-flex translate-y-1 items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
           {tr.openOffice} <ChevronRight className="size-2.5" />
@@ -240,7 +240,7 @@ export function WelcomePage({ language, onExplore, onNavigateOffice }: WelcomePa
                   </div>
                   <div className="mt-1">
                     <p className="text-base font-black leading-snug text-primary">{tr.leaderNames.minister}</p>
-                    <p className="mt-0.5 text-xs font-medium text-muted-foreground">{tr.leaderTitles.minister}</p>
+                    <p className="mt-0.5 text-xs font-bold text-muted-foreground">{tr.leaderTitles.minister}</p>
                   </div>
                   <div className="h-0.5 w-16 rounded-full bg-gradient-to-r from-primary/40 via-[#c08a2e] to-primary/40" />
                 </div>
