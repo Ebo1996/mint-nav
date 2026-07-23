@@ -3,9 +3,12 @@
 
 export interface DepartmentDetail {
   managerName: string
+  managerNameAmharic?: string
   position: string
+  positionAmharic: string
   photo: string
   description: string
+  descriptionAmharic: string
   building: string
   floor: string
   room: string
@@ -14,6 +17,7 @@ export interface DepartmentDetail {
   extension: string
   email: string
   location: string
+  locationAmharic: string
   status: "Open" | "Closed" | "By Appointment"
 }
 
@@ -30,9 +34,12 @@ export interface Office {
   amharic: string
   icon: string
   work: string
+  workAmharic: string
   manager: {
     name: string
+    nameAmharic?: string
     position: string
+    positionAmharic: string
     photo: string
     telephone: string
     email: string
@@ -54,28 +61,116 @@ export interface Building {
   offices: Office[]
 }
 
-// Real manager photos based on leadership directory - only from manager images folder
-const MANAGER_PHOTOS: Record<string, string> = {
-  "Dr. Belete Molla": "/images/manager images/Dr. Belete Mola.png",
-  "Dr. Bayissa Bedada": "/images/manager images/Dr. Bayisa Bedada.png",
-  "Mr. Muluken Qere": "/images/manager images/Muluken Kere.png",
-  "Dr. Fozia Amin": "/images/manager images/Dr.Foziya Amin.png",
-  "Mr. Leul Seyoum": "/images/manager images/Liul Siyum.png",
-  "Mr. Yonas Hailu": "/images/manager images/Yonas Hailu.png",
-  "Mr. Seyoum Mengesha": "/images/manager images/Siyum Mengesha.png",
-  "Mrs. Mihraj Zekiyu": "/images/manager images/Mihiraj Zekiya.png",
-  "Mr. Selamyihun Adefris": "/images/manager images/Selamyihun.png",
-  "Dr. Habtamu Abera": "/images/manager images/Dr. Habtamu Abera.png",
-  "Dr. Teklemariam Tesema": "/images/manager images/Dr. Teklemariyam Tesema.png",
-  "Mr. Solomon Aynimar": "/images/manager images/Solomon Aynimar.png",
-  "Mr. Azmach Desalegn": "/images/manager images/Azmach Desalegn.png",
-  "Mr. Dinber Getahun": "/images/manager images/Denber Getahun.png",
-  "Mr. Yidnekachew Teshome": "/images/manager images/Yidnekachew Teshome.png",
-  "Mr. Adagne Assefa": "/images/manager images/Adagne Asefa.png",
-}
-
 // Placeholder for managers without photos
 const PLACEHOLDER_PHOTO = "/placeholder-user.jpg"
+
+// Real manager photos based on leadership directory - only from manager images folder
+const MANAGER_PHOTOS: Record<string, string> = {
+  // 1. Minister
+  "Dr. Belete Molla": "/images/manager%20images/dr%20belete%20molla.png",
+  "ዶ/ር በለጠ ሞላ ጌታሁን": "/images/manager%20images/dr%20belete%20molla.png",
+  
+  // 2. State Minister - Research & Innovation
+  "Dr. Bayissa Bedada": "/images/manager%20images/dr%20Bayisa%20Bedada.png",
+  "ዶ/ር ባይሳ በዳዳ": "/images/manager%20images/dr%20Bayisa%20Bedada.png",
+  
+  // 3. State Minister - ICT & Digital Economy
+  "Mr. Muluken Qere": "/images/manager%20images/ato%20Muluken%20Kere.png",
+  "አቶ ሙሉቀን ቀሬ": "/images/manager%20images/ato%20Muluken%20Kere.png",
+  
+  // 4. Advisory State Minister
+  "Dr. Fozia Amin": "/images/manager%20images/Dr%20Foziya%20Amin.png",
+  "ዶ/ር ፎዚያ አሚን": "/images/manager%20images/Dr%20Foziya%20Amin.png",
+  
+  // 5. Head of Minister's Office
+  "Mr. Leul Seyoum": "/images/manager%20images/Ato%20liul%20siyum.png",
+  "አቶ ልዑል ስዩም": "/images/manager%20images/Ato%20liul%20siyum.png",
+  
+  // 6. CEO of Operations
+  "Mr. Solomon Aynimar": "/images/manager%20images/Ato%20Solomon%20Ayinimar.png",
+  "አቶ ሰለሞን አይኒማር": "/images/manager%20images/Ato%20Solomon%20Ayinimar.png",
+  
+  // 7. ICT Infrastructure Lead Executive
+  "Mr. Yonas Hailu": "/images/manager%20images/Ato%20Yonas%20Hayilu.png",
+  "አቶ ዮናስ ኃይሉ": "/images/manager%20images/Ato%20Yonas%20Hayilu.png",
+  
+  // 8. Digital Economy Lead Executive
+  "Mr. Seyoum Mengesha": "/images/manager%20images/Siyum%20Mengasha.png",
+  "አቶ ስዩም መንገሻ": "/images/manager%20images/Siyum%20Mengasha.png",
+  
+  // 9. E-Government Lead Executive
+  "Mrs. Mihraj Zekiyu": "/images/manager%20images/Wro%20Mihiraj%20Zakiyi.png",
+  "ወ/ሮ ሚህራጅ ዘኪዩ": "/images/manager%20images/Wro%20Mihiraj%20Zakiyi.png",
+  
+  // 10. Innovation Development Lead Executive
+  "Mr. Selamyihun Adefris": "/images/manager%20images/Ato%20Selamyihun%20Adefris.jpg",
+  "አቶ ሰላምይሁን አደፍርስ": "/images/manager%20images/Ato%20Selamyihun%20Adefris.jpg",
+  
+  // 11. National Research Lead Executive
+  "Dr. Habtamu Abera": "/images/manager%20images/Ato%20%20habatmu%20Bera.png",
+  "ዶ/ር ሃብታሙ አበራ": "/images/manager%20images/Ato%20%20habatmu%20Bera.png",
+  
+  // 12. Technology Development Lead Executive
+  "Dr. Teklemariam Tesema": "/images/manager%20images/dr%20teklemariam%20%20tesema.png",
+  "ዶ/ር ተክለማርያም ተሰማ": "/images/manager%20images/dr%20teklemariam%20%20tesema.png",
+  
+  // 13. Strategic Affairs Executive
+  "Mr. Azmach Desalegn": "/images/manager%20images/Azmach%20Tekalign.png",
+  "አቶ አዝማች ደሳለኝ": "/images/manager%20images/Azmach%20Tekalign.png",
+  
+  // 14. ICT Executive
+  "Mr. Dinber Getahun": "/images/manager%20images/dinber%20getahun.png",
+  "አቶ ድንበር ጌታሁን": "/images/manager%20images/dinber%20getahun.png",
+  
+  // 15. Basic Services Executive
+  "Mr. Yidnekachew Teshome": "/images/manager%20images/yidnikachew%20%20teshome.png",
+  "አቶ ይደነቃቸው ተሾመ": "/images/manager%20images/yidnikachew%20%20teshome.png",
+  
+  // 16. Human Resource Executive
+  "Mr. Adagne Assefa": "/images/manager%20images/Adagn%20asefa.png",
+  "አቶ አዳኘ አሰፋ": "/images/manager%20images/Adagn%20asefa.png",
+  
+  // 17. Finance & Procurement Executive
+  "Mrs. Etalemahu Gezahagn": "/images/manager%20images/etalamew%20gezakagn.jpg",
+  "ወ/ሮ እታለማሁ ገዛኸኝ": "/images/manager%20images/etalamew%20gezakagn.jpg",
+  
+  // 18. Ethics Monitoring Executive
+  "Mr. Mekonnen Moges": "/images/manager%20images/mokonin%20moges.png",
+  "አቶ መኮንን ሞገስ": "/images/manager%20images/mokonin%20moges.png",
+  
+  // 19. Institutional Change Executive
+  "Mr. Sibar Endelam": "/images/manager%20images/sibar%20andualem.png",
+  "አቶ ስበር አንዱአለም": "/images/manager%20images/sibar%20andualem.png",
+  
+  // 20. Audit Executive
+  "Mr. Ashagrie Alemu": "/images/manager%20images/Ashagre%20alemu.png",
+  "አቶ አሻግሬ አለሙ": "/images/manager%20images/Ashagre%20alemu.png",
+  
+  // 21. Innovation Fund Head
+  "Mrs. Adanech Tujo": "/images/manager%20images/Adanech%20tujo.png",
+  "ወ/ሮ አዳነች ቱጆ": "/images/manager%20images/Adanech%20tujo.png",
+  
+  // 22. Women & Youth Executive
+  "Mrs. Elsabet Gebreselasie": "/images/manager%20images/elsabet%20gebrasilase.png",
+  "ወ/ሮ ኤልሳቤጥ ገብረስላሴ": "/images/manager%20images/elsabet%20gebrasilase.png",
+  
+  // 23. Public Relations Executive
+  "Mr. Tesfaye Alemnew": "/images/manager%20images/tesfaye%20alemnew.png",
+  "አቶ ተስፋዬ አለምነው": "/images/manager%20images/tesfaye%20alemnew.png",
+  
+  // 24. Policy & Strategy Research Lead
+  "Dr. Bekuratsion Alemayehu": "/images/manager%20images/dr%20Bekuratsion%20.jpg",
+  "ዶ/ር በኩረጽዮን አለማየሁ": "/images/manager%20images/dr%20Bekuratsion%20.jpg",
+  
+  // 25. Senior Advisor to Minister (Not shown in structure yet - may need to add)
+  "Dr. Solomon Belay": PLACEHOLDER_PHOTO,
+  "ዶ/ር ሰለሞን በላይ": PLACEHOLDER_PHOTO,
+  
+  // 26. Legal Service Executive
+  "Mr. Ayalneh Lema": "/images/manager%20images/ayalneh%20lemma.png",
+  "አቶ ኢያልነህ ለማ": "/images/manager%20images/ayalneh%20lemma.png",
+}
+
 
 // Helper function to get manager photo or placeholder
 function getManagerPhoto(name: string): string {
@@ -88,24 +183,33 @@ type BuildingAssignment = "Building A" | "Building B" | "Not Specified"
 function dept(
   id: string,
   name: string,
+  amharic: string,
   building: BuildingAssignment,
   floor: string,
   room: string,
   officeNumber: string,
   managerName: string,
+  managerNameAmharic: string,
   position: string,
+  positionAmharic: string,
   ext: string,
   description: string,
+  descriptionAmharic: string,
   status: DepartmentDetail["status"] = "Open",
 ): Department {
+  const buildingAm = building === "Building A" ? "ህንጻ ሀ" : building === "Building B" ? "ህንጻ ለ" : building
   return {
     id,
     name,
+    amharic,
     detail: {
       managerName,
+      managerNameAmharic,
       position,
+      positionAmharic,
       photo: getManagerPhoto(managerName),
       description,
+      descriptionAmharic,
       building,
       floor,
       room,
@@ -114,6 +218,7 @@ function dept(
       extension: ext,
       email: id.replace(/-/g, ".") + "@mint.gov.et",
       location: `${building}, Floor ${floor}, Room ${room}`,
+      locationAmharic: `${buildingAm}፣ ፎቅ ${floor}፣ ክፍል ${room}`,
       status,
     },
   }
@@ -127,9 +232,12 @@ const buildingAOffices: Office[] = [
     amharic: "የሚኒስትር ጽሕፈት ቤት",
     icon: "crown",
     work: "Provides executive leadership, sets strategic direction and oversees the overall coordination of the Ministry.",
+    workAmharic: "የሥራ አስፈጻሚ አመራር ይሰጣል፣ ስትራቴጂካዊ አቅጣጫ ያስቀምጣል እና የሚኒስቴሩን አጠቃላይ ቅንጅት ይቆጣጠራል።",
     manager: {
       name: "H.E. Dr. Belete Molla",
-      position: "Minister / ሚኒስትር",
+      nameAmharic: "ክቡር ዶ/ር በለጠ ሞላ ጌታሁን",
+      position: "Minister",
+      positionAmharic: "ሚኒስቴር",
       photo: getManagerPhoto("Dr. Belete Molla"),
       telephone: "+251 11 552 1001",
       email: "minister@mint.gov.et",
@@ -140,33 +248,66 @@ const buildingAOffices: Office[] = [
     officeNumber: "A-701",
     status: "Open",
     departments: [
-      dept("head-ministers-office", "Head of Minister's Office", "Building A", "7", "702", "A-702",
-        "Mr. Leul Seyoum", "Head of Minister's Office / የሚኒስትር ጽ/ቤት ኃላፊ", "1002",
-        "Manages the Minister's office operations, coordinates executive schedules and oversees ministerial communications."),
-      dept("senior-advisor", "Senior Advisor to the Minister", "Building A", "7", "703", "A-703",
-        "Dr. Solomon Belay", "Senior Advisor to the Minister / የሚኒስትሩ ከፍተኛ አማካሪ", "1003",
-        "Provides strategic advice and counsel to the Minister on policy matters and key decisions."),
-      dept("advisor-state-minister", "Advisor State Minister Office", "Building A", "8", "801", "A-801",
-        "Dr. Fozia Amin", "Advisor State Minister / አማካሪ ሚኒስትር ዴኤታ", "1004",
-        "Provides advisory support on strategic initiatives and specialized policy areas."),
-      dept("legal-service", "Legal Service Office", "Building A", "1", "101", "A-101",
-        "Mr. Ayalneh Lemma", "Executive for Legal Services / የህግ አገልግሎት ስራ አስፈጻሚ", "1005",
-        "Provides legal counsel, drafts ministry regulations, ensures statutory compliance and handles litigation matters on behalf of the Ministry."),
-      dept("audit-service", "Internal Audit Office", "Building A", "2", "201", "A-201",
-        "Mr. Ashagrie Alemu", "Executive for Internal Audit / የኦዲት ስራ አስፈጻሚ", "1006",
-        "Conducts internal audits of financial accounts, procurement processes and operational activities to ensure accountability and transparency."),
-      dept("institutional-reform", "Institutional Reform Office", "Building A", "2", "202", "A-202",
-        "Mr. Seber Andualem", "Executive for Institutional Reform / የተቋማዊ ለውጥ ስራ አስፈጻሚ", "1007",
-        "Manages organisational restructuring, institutional capacity building and transition planning to support the Ministry's evolving mandate."),
-      dept("ethics-monitoring", "Ethics Monitoring Office", "Building A", "2", "203", "A-203",
-        "Mr. Mekonnen Moges", "Executive for Ethics Monitoring / የስነ-ምግባር መከታተያ ስራ አስፈጻሚ", "1008",
-        "Promotes ethical conduct, investigates misconduct, implements anti-corruption policies and ensures integrity across all Ministry units."),
-      dept("public-relations", "Public Relations & Communication Office", "Not Specified", "N/A", "N/A", "N/A",
-        "Mr. Tesfayo Alemnew", "Executive for Public Relations & Communication / የህዝብ ግንኙነትና ኮሙኒኬሽን አገልግሎት ስራ አስፈጻሚ", "1009",
-        "Manages media relations, public messaging, social media presence and stakeholder communications for the Ministry."),
-      dept("women-social-inclusion", "Women & Youth Social Inclusion Office", "Building A", "4", "401", "A-401",
-        "Mrs. Elsabet Gebreselassie", "Executive for Women & Youth Social Inclusion / የሴቶችና ወጣቶች ማህበራዊ አካቶ ትግበራ ስራ አስፈጻሚ", "1010",
-        "Advances gender equity, youth empowerment and ensures inclusive participation across Ministry initiatives."),
+      dept("head-ministers-office", "Head of Minister's Office", "የሚኒስትር ጽ/ቤት ኃላፊ", "Building A", "7", "702", "A-702",
+        "Mr. Leul Seyoum", "አቶ ልዑል ስዩም", "Head of Minister's Office", "የሚኒስትር ጽ/ቤት ኃላፊ", "1002",
+        "Manages the Minister's office operations, coordinates executive schedules and oversees ministerial communications.",
+        "የሚኒስትሩን ጽሕፈት ቤት ስራዎች ያስተዳድራል፣ የሥራ አስፈጻሚ መርሃ ግብሮችን ያቀናጃል እና የሚኒስቴሩ ኮሙዩኒኬሽን ይቆጣጠራል።"),
+    ],
+  },
+  {
+    id: "advisory-state-minister",
+    name: "Advisory State Minister Sector",
+    amharic: "አማካሪ ሚኒስትር ዴኤታ ዘርፍ",
+    icon: "scroll",
+    work: "Provides advisory support on policy, communications, legal, audit, ethics, institutional change and social inclusion across the Ministry.",
+    workAmharic: "በሚኒስቴሩ ውስጥ በፖሊሲ፣ ኮሙዩኒኬሽን፣ ሕግ፣ ኦዲት፣ ሥነ-ምግባር፣ ተቋማዊ ለውጥ እና ማህበራዊ አካታችነት ላይ አማካሪ ድጋፍ ይሰጣል።",
+    manager: {
+      name: "H.E. Dr. Fozia Amin",
+      nameAmharic: "ክብርት ዶ/ር ፎዚያ አሚን",
+      position: "Advisory State Minister",
+      positionAmharic: "አማካሪ ሚኒስቴር ዴኤታ",
+      photo: getManagerPhoto("Dr. Fozia Amin"),
+      telephone: "+251 11 552 8001",
+      email: "advisory@mint.gov.et",
+    },
+    building: "Building A",
+    floor: "8",
+    room: "801",
+    officeNumber: "A-801",
+    status: "Open",
+    departments: [
+      dept("ethics-monitoring", "Ethics Monitoring Office", "የስነ-ምግባር ክትትል ቢሮ", "Building A", "8", "802", "A-802",
+        "Mr. Mekonnen Moges", "አቶ መኮንን ሞገስ", "Ethics Monitoring Executive", "የስነ-ምግባር ክትትል ስራ አስፈጻሚ", "8002",
+        "Promotes ethical conduct, investigates misconduct, implements anti-corruption policies and ensures integrity across all Ministry units.",
+        "የሥነ-ምግባር ተግባርን ያበረታታል፣ ሕገ-ወጥ ድርጊቶችን ይመረምራል፣ የፀረ-ሙስና ፖሊሲዎችን ያስፈጽማል እና በሁሉም የሚኒስቴሩ ክፍሎች ታማኝነትን ያረጋግጣል።"),
+      dept("institutional-change", "Institutional Change Office", "የተቋማዊ ለውጥ ቢሮ", "Building A", "8", "803", "A-803",
+        "Mr. Sibar Endelam", "Institutional Change Executive", "የተቋማዊ ለውጥ ስራ አስፈጻሚ", "8003",
+        "Manages organisational restructuring, institutional capacity building and transition planning to support the Ministry's evolving mandate.",
+        "የሚኒስቴሩን ተለዋዋጭ ተልዕኮ ለመደገፍ ድርጅታዊ መዋቅር ለውጥ፣ የተቋም አቅም ግንባታ እና የሽግግር እቅድ ያስተዳድራል።"),
+      dept("policy-strategic-research", "Policy & Strategy Research Office", "የፖሊሲና ስትራቴጂ ምርምር ቢሮ", "Building A", "8", "804", "A-804",
+        "Dr. Bekuratsion Alemayehu", "Policy and Strategy Research Lead Executive", "የፖሊሲና ስትራቴጂ ምርምር መሪ ስራ አስፈጻሚ", "8004",
+        "Leads policy and strategy studies and research to guide the Ministry's decision making.",
+        "የሚኒስቴሩን ውሳኔ አሰጣጥ ለመምራት የፖሊሲና ስትራቴጂ ጥናቶችን እና ምርምሮችን ይመራል።"),
+      dept("public-relations", "Public Relations & Communication Office", "የሕዝብ ግንኙነትና ኮሙኒኬሽን ቢሮ", "Building A", "8", "805", "A-805",
+        "Mr. Tesfaye Alemnew", "Public Relations and Communication Service Executive", "የሕዝብ ግንኙነትና ኮሙኒኬሽን አገልግሎት ስራ አስፈጻሚ", "8005",
+        "Manages media relations, public messaging, social media presence and stakeholder communications for the Ministry.",
+        "ለሚኒስቴሩ የሚዲያ ግንኙነቶችን፣ የሕዝብ መልዕክቶችን፣ የማህበራዊ ሚዲያ ተሳትፎን እና የባለድርሻ ኮሙዩኒኬሽን ያስተዳድራል።"),
+      dept("audit-service", "Audit Office", "የኦዲት ቢሮ", "Building A", "8", "806", "A-806",
+        "Mr. Ashagrie Alemu", "Audit Executive", "የኦዲት ስራ አስፈጻሚ", "8006",
+        "Conducts internal audits of financial accounts, procurement processes and operational activities to ensure accountability and transparency.",
+        "ተጠያቂነትና ግልጽነትን ለማረጋገጥ የፋይናንስ ሒሳቦችን፣ የግዢ ሂደቶችን እና የስራ አፈጻጸም ተግባራትን ውስጣዊ ኦዲት ያካሂዳል።"),
+      dept("women-youth-social", "Women and Youth Social Inclusion Office", "የሴቶችና ወጣቶች ማህበራዊ አካታችነት ቢሮ", "Building A", "8", "807", "A-807",
+        "Mrs. Elsabet Gebreselasie", "Women and Youth Social Inclusion Implementation Executive", "የሴቶችና ወጣቶች ማህበራዊ አካታችነት ስራ አስፈጻሚ", "8007",
+        "Advances gender equity, youth empowerment and ensures inclusive participation across Ministry initiatives.",
+        "የፆታ እኩልነትን ያሳድጋል፣ ወጣቶችን ያብቃቃል እና በሚኒስቴሩ ተነሳሽነቶች ሁሉ ሁሉን አቀፍ ተሳትፎ ያረጋግጣል።"),
+      dept("innovation-fund", "Innovation Fund Office", "የኢኖቬሽን ፈንድ ጽሕፈት ቤት", "Building A", "8", "808", "A-808",
+        "Mrs. Adanech Tujo", "ወ/ሮ አዳነች ቱጆ", "Head of Innovation Fund Office", "የኢኖቬሽን ፈንድ ጽ/ቤት ኃላፊ", "8008",
+        "Administers the national innovation fund and finances high-impact technology and startup initiatives.",
+        "ብሔራዊ የኢኖቬሽን ፈንድ ያስተዳድራል እና ከፍተኛ ተፅዕኖ ያላቸው የቴክኖሎጂ እና ስታርታፕ ተነሳሽነቶችን ይሸልማል።"),
+      dept("legal-service", "Legal Service Office", "የህግ አገልግሎት ቢሮ", "Building A", "8", "809", "A-809",
+        "Mr. Ayalneh Lema", "Legal Service Executive", "የህግ አገልግሎት ስራ አስፈጻሚ", "8009",
+        "Provides legal counsel, drafts ministry regulations, ensures statutory compliance and handles litigation matters on behalf of the Ministry.",
+        "የሕግ ምክር ይሰጣል፣ የሚኒስቴሩ ደንቦችን ያዘጋጃል፣ የሕግ ተከታዮችን ያረጋግጣል እና በሚኒስቴሩ ስም የሕግ ጉዳዮችን ያስተናግዳል።"),
     ],
   },
   {
@@ -175,9 +316,12 @@ const buildingAOffices: Office[] = [
     amharic: "የኢኖቬሽንና ቴክኖሎጂ የትብብርና ትስስር ጉዳዮች",
     icon: "handshake",
     work: "Builds strategic partnerships and alliances with local and international technology and innovation stakeholders.",
+    workAmharic: "ከአካባቢያዊ እና ዓለም አቀፍ የቴክኖሎጂ እና ኢኖቬሽን ባለድርሻዎች ጋር ስትራቴጂካዊ አጋርነቶችን እና ትስስሮችን ይገነባል።",
     manager: {
       name: "Mr. Leul Seyoum",
-      position: "Lead Executive for Innovation & Technology Partnership & Linkage / የኢኖቬሽንና ቴክኖሎጂ የትብብርና ትስስር ጉዳዮች መሪ ስራ አስፈጻሚ",
+      nameAmharic: "አቶ ልዑል ስዩም",
+      position: "Lead Executive for Innovation & Technology Partnership & Linkage",
+      positionAmharic: "የኢኖቬሽንና ቴክኖሎጂ የትብብርና ትስስር ጉዳዮች መሪ ስራ አስፈጻሚ",
       photo: getManagerPhoto("Mr. Leul Seyoum"),
       telephone: "+251 11 552 2001",
       email: "partnership@mint.gov.et",
@@ -187,7 +331,40 @@ const buildingAOffices: Office[] = [
     room: "704",
     officeNumber: "A-704",
     status: "Open",
-    departments: [],
+    departments: [
+      dept("pa-ethics-monitoring", "Ethics Monitoring Office", "የስነ-ምግባር ክትትል ቢሮ", "Building A", "7", "705", "A-705",
+        "Mr. Mekonnen Moges", "አቶ መኮንን ሞገስ", "Ethics Monitoring Executive", "የስነ-ምግባር ክትትል ስራ አስፈጻሚ", "2002",
+        "Promotes ethical conduct, investigates misconduct, implements anti-corruption policies and ensures integrity across all Ministry units.",
+        "የሥነ-ምግባር ተግባርን ያበረታታል፣ ሕገ-ወጥ ድርጊቶችን ይመረምራል፣ የፀረ-ሙስና ፖሊሲዎችን ያስፈጽማል እና በሁሉም የሚኒስቴሩ ክፍሎች ታማኝነትን ያረጋግጣል።"),
+      dept("pa-institutional-change", "Institutional Change Office", "የተቋማዊ ለውጥ ቢሮ", "Building A", "7", "706", "A-706",
+        "Mr. Sibar Endelam", "አቶ ስበር አንዱአለም", "Institutional Change Executive", "የተቋማዊ ለውጥ ስራ አስፈጻሚ", "2003",
+        "Manages organisational restructuring, institutional capacity building and transition planning to support the Ministry's evolving mandate.",
+        "የሚኒስቴሩን ተለዋዋጭ ተልዕኮ ለመደገፍ ድርጅታዊ መዋቅር ለውጥ፣ የተቋም አቅም ግንባታ እና የሽግግር እቅድ ያስተዳድራል።"),
+      dept("pa-policy-strategic-research", "Policy & Strategy Research Office", "የፖሊሲና ስትራቴጂ ምርምር ቢሮ", "Building A", "7", "707", "A-707",
+        "Dr. Bekuratsion Alemayehu", "ዶ/ር በኩረጽዮን አለማየሁ", "Policy and Strategy Research Lead Executive", "የፖሊሲና ስትራቴጂ ምርምር መሪ ስራ አስፈጻሚ", "2004",
+        "Leads policy and strategy studies and research to guide the Ministry's decision making.",
+        "የሚኒስቴሩን ውሳኔ አሰጣጥ ለመምራት የፖሊሲና ስትራቴጂ ጥናቶችን እና ምርምሮችን ይመራል።"),
+      dept("pa-public-relations", "Public Relations & Communication Office", "የሕዝብ ግንኙነትና ኮሙኒኬሽን ቢሮ", "Building A", "7", "708", "A-708",
+        "Mr. Tesfaye Alemnew", "አቶ ተስፋዬ አለምነው", "Public Relations and Communication Service Executive", "የሕዝብ ግንኙነትና ኮሙኒኬሽን አገልግሎት ስራ አስፈጻሚ", "2005",
+        "Manages media relations, public messaging, social media presence and stakeholder communications for the Ministry.",
+        "ለሚኒስቴሩ የሚዲያ ግንኙነቶችን፣ የሕዝብ መልዕክቶችን፣ የማህበራዊ ሚዲያ ተሳትፎን እና የባለድርሻ ኮሙዩኒኬሽን ያስተዳድራል።"),
+      dept("pa-audit-service", "Audit Office", "የኦዲት ቢሮ", "Building A", "7", "709", "A-709",
+        "Mr. Ashagrie Alemu", "አቶ አሻግሬ አለሙ", "Audit Executive", "የኦዲት ስራ አስፈጻሚ", "2006",
+        "Conducts internal audits of financial accounts, procurement processes and operational activities to ensure accountability and transparency.",
+        "ተጠያቂነትና ግልጽነትን ለማረጋገጥ የፋይናንስ ሒሳቦችን፣ የግዢ ሂደቶችን እና የስራ አፈጻጸም ተግባራትን ውስጣዊ ኦዲት ያካሂዳል።"),
+      dept("pa-women-youth-social", "Women and Youth Social Inclusion Office", "የሴቶችና ወጣቶች ማህበራዊ አካታችነት ቢሮ", "Building A", "7", "710", "A-710",
+        "Mrs. Elsabet Gebreselasie", "ወ/ሮ ኤልሳቤጥ ገብረስላሴ", "Women and Youth Social Inclusion Implementation Executive", "የሴቶችና ወጣቶች ማህበራዊ አካታችነት ስራ አስፈጻሚ", "2007",
+        "Advances gender equity, youth empowerment and ensures inclusive participation across Ministry initiatives.",
+        "የፆታ እኩልነትን ያሳድጋል፣ ወጣቶችን ያብቃቃል እና በሚኒስቴሩ ተነሳሽነቶች ሁሉ ሁሉን አቀፍ ተሳትፎ ያረጋግጣል።"),
+      dept("pa-innovation-fund", "Innovation Fund Office", "የኢኖቬሽን ፈንድ ጽሕፈት ቤት", "Building A", "7", "711", "A-711",
+        "Mrs. Adanech Tujo", "ወ/ሮ አዳነች ቱጆ", "Head of Innovation Fund Office", "የኢኖቬሽን ፈንድ ጽ/ቤት ኃላፊ", "2008",
+        "Administers the national innovation fund and finances high-impact technology and startup initiatives.",
+        "ብሔራዊ የኢኖቬሽን ፈንድ ያስተዳድራል እና ከፍተኛ ተፅዕኖ ያላቸው የቴክኖሎጂ እና ስታርታፕ ተነሳሽነቶችን ይሸልማል።"),
+      dept("pa-legal-service", "Legal Service Office", "የህግ አገልግሎት ቢሮ", "Building A", "7", "712", "A-712",
+        "Mr. Ayalneh Lema", "አቶ ኢያልነህ ለማ", "Legal Service Executive", "የህግ አገልግሎት ስራ አስፈጻሚ", "2009",
+        "Provides legal counsel, drafts ministry regulations, ensures statutory compliance and handles litigation matters on behalf of the Ministry.",
+        "የሕግ ምክር ይሰጣል፣ የሚኒስቴሩ ደንቦችን ያዘጋጃል፣ የሕግ ተከታዮችን ያረጋግጣል እና በሚኒስቴሩ ስም የሕግ ጉዳዮችን ያስተናግዳል።"),
+    ],
   },
   {
     id: "innovation-research",
@@ -195,9 +372,12 @@ const buildingAOffices: Office[] = [
     amharic: "የኢኖቬሽንና ምርምር ዘርፍ",
     icon: "flask",
     work: "Leads national research programs and drives technology transformation and innovation management.",
+    workAmharic: "ብሔራዊ የምርምር ፕሮግራሞችን ይመራል እና የቴክኖሎጂ ሽግግር እና ኢኖቬሽን አስተዳደርን ያሳድጋል።",
     manager: {
       name: "H.E. Dr. Bayissa Bedada",
-      position: "State Minister for Research & Innovation Development / የምርምርና ኢኖቬሽን ልማት ሚኒስትር ዴኤታ",
+      nameAmharic: "ክቡር ዶ/ር ባይሳ በዳዳ",
+      position: "State Minister for Research & Innovation Development",
+      positionAmharic: "የምርመርና ኢኖቬሽን ልማት ሚኒስቴር ዴኤታ",
       photo: getManagerPhoto("Dr. Bayissa Bedada"),
       telephone: "+251 11 552 3001",
       email: "research@mint.gov.et",
@@ -208,30 +388,33 @@ const buildingAOffices: Office[] = [
     officeNumber: "A-601",
     status: "Open",
     departments: [
-      dept("innovation-development", "Innovation Development Office", "Building A", "6", "602", "A-602",
-        "Mr. Selamyihun Adefris", "Lead Executive for Innovation Development / የኢኖቬሽን ልማት መሪ ስራ አስፈጻሚ", "3002",
-        "Oversees innovation pipeline management, intellectual property frameworks and the commercialisation of government-funded research outputs."),
-      dept("national-research", "National Research & Development Office", "Building A", "5", "501", "A-501",
-        "Dr. Habtamu Abera", "Lead Executive for National Research & Development / የሀገራዊ ምርምርና ልማት መሪ ስራ አስፈጻሚ", "3003",
-        "Designs and oversees national research agendas, funds applied science projects and coordinates with universities and research institutes."),
-      dept("technology-development", "Technology Development & Transfer Office", "Building A", "5", "502", "A-502",
-        "Dr. Teklemariam Tesema", "Lead Executive for Technology Development & Transfer / የቴክኖሎጂ ልማትና ሽግግር መሪ ስራ አስፈጻሚ", "3004",
-        "Drives adoption of emerging technologies, manages technology transfer programs and transformation roadmaps."),
-      dept("operations-management", "Operations Management Office", "Building A", "5", "503", "A-503",
-        "Mr. Solomon Aynimar", "Chief Executive for Operations Management / የስራ አመራር ዋና ስራ አስፈጻሚ", "3005",
-        "Oversees operational efficiency, project execution and performance monitoring across the sector."),
+      dept("innovation-development", "Innovation Development Office", "የኢኖቬሽን ልማት ቢሮ", "Building A", "6", "602", "A-602",
+        "Mr. Selamyihun Adefris", "አቶ ሰላምይሁን አደፍርስ", "CEO of Innovation Development", "የኢኖቬሽን ልማት ዋና ስራ አስፈጻሚ", "3002",
+        "Oversees innovation pipeline management, intellectual property frameworks and the commercialisation of government-funded research outputs.",
+        "የኢኖቬሽን ፓይፕላይን አስተዳደርን፣ የአዕምሮ ሀብት ማዕቀፎችን እና የመንግሥት ፈንድ ምርምር ውጤቶችን ወደ ንግድ ለውጦ ማቅረብን ይቆጣጠራል።"),
+      dept("national-research", "National Research & Development Office", "የብሔራዊ ምርምርና ልማት ቢሮ", "Building A", "5", "501", "A-501",
+        "Dr. Habtamu Abera", "ዶ/ር ሃብታሙ አበራ", "CEO of National Research & Development", "የብሄራዊ ምርምር እና ልማት ዋና ስራ አስፈጻሚ", "3003",
+        "Designs and oversees national research agendas, funds applied science projects and coordinates with universities and research institutes.",
+        "ብሔራዊ የምርምር አጀንዳዎችን ያዘጋጃል እና ይቆጣጠራል፣ ተግባራዊ ሳይንስ ፕሮጄክቶችን ይሸልማል እና ከዩኒቨርሲቲዎች እና የምርምር ተቋማት ጋር ያስተባብራል።"),
+      dept("technology-development", "Technology Development & Transfer Office", "የቴክኖሎጂ ልማትና ሽግግር ቢሮ", "Building A", "5", "502", "A-502",
+        "Dr. Teklemariam Tesema", "ዶ/ር ተክለማርያም ተሰማ", "CEO of Technology Development & Transfer", "የቴክኖሎጂ ልማት እና ሽግግር ዋና ስራ አስፈጻሚ", "3004",
+        "Drives adoption of emerging technologies, manages technology transfer programs and transformation roadmaps.",
+        "የሚወጡ ቴክኖሎጂዎችን መቀበልን ያሳድጋል፣ የቴክኖሎጂ ሽግግር ፕሮግራሞችን እና የሽግግር ካርታዎችን ያስተዳድራል።"),
     ],
   },
   {
     id: "administration",
-    name: "Administration Office",
-    amharic: "የአስተዳደር ጽሕፈት ቤት",
+    name: "Chief Administration Office",
+    amharic: "የስራ አመራር ዋና ጽሕፈት ቤት",
     icon: "building",
     work: "Manages the Ministry's finance, procurement, human resources, facilities and internal ICT services.",
+    workAmharic: "የሚኒስቴሩን ፋይናንስ፣ ግዢ፣ ሰው ሀብት፣ ተቋማት እና ውስጣዊ አይሲቲ አገልግሎቶች ያስተዳድራል።",
     manager: {
-      name: "Head of Administration",
-      position: "Head of Administration",
-      photo: PLACEHOLDER_PHOTO,
+      name: "Mr. Solomon Aynimar",
+      nameAmharic: "አቶ ሰለሞን አይኒማር",
+      position: "Chief Executive Officer of Operations / Administration",
+      positionAmharic: "የስራ አመራር ዋና ስራ አስፈጻሚ",
+      photo: getManagerPhoto("Mr. Solomon Aynimar"),
       telephone: "+251 11 552 5001",
       email: "admin@mint.gov.et",
     },
@@ -241,42 +424,27 @@ const buildingAOffices: Office[] = [
     officeNumber: "A-301",
     status: "Open",
     departments: [
-      dept("strategic-affairs", "Strategic Affairs Office", "Building A", "3", "302", "A-302",
-        "Mr. Azmach Desalegn", "Executive for Strategic Affairs / የስትራቴጂክ ጉዳዮች ስራ አስፈጻሚ", "5002",
-        "Coordinates the Ministry's strategic planning cycles, monitors implementation of the corporate plan and prepares performance reports."),
-      dept("ict-office", "Information Communication Technology Office", "Building A", "3", "303", "A-303",
-        "Mr. Dinber Getahun", "Executive for Information Communication Technology / የኢንፎርሜሽን ኮሙኒኬሽን ቴክኖሎጂ ስራ አስፈጻሚ", "5003",
-        "Maintains internal ICT systems, provides helpdesk support, manages network security and implements digital workplace tools."),
-      dept("basic-services", "Basic Services Office", "Building A", "3", "304", "A-304",
-        "Mr. Yidnekachew Teshome", "Executive for Basic Services / የመሠረታዊ አገልግሎት ሥራ አስፈጻሚ", "5004",
-        "Manages essential operational services and support functions across the Ministry."),
-      dept("human-resource", "Competency & Human Resource Management Office", "Building A", "3", "305", "A-305",
-        "Mr. Adagne Assefa", "Executive for Competency & Human Resource Management / የብቃትና ሰው ሀብት አስተዳደር ሥራ አስፈጻሚ", "5005",
-        "Oversees staff recruitment, competency development, performance management, payroll administration and employee welfare programmes."),
-      dept("finance-procurement", "Procurement & Finance Office", "Building A", "3", "306", "A-306",
-        "Mrs. Etalemahu Gezahagn", "Executive for Procurement & Finance / የግዥና ፋይናንስ ስራ አሰፈጻሚ", "5006",
-        "Manages budget preparation, financial reporting, procurement tendering and contract administration in accordance with government regulations."),
+      dept("finance-procurement", "Procurement & Finance Office", "የግዢና ፋይናንስ ቢሮ", "Building A", "3", "306", "A-306",
+        "Mrs. Etalemahu Gezahagn", "ወ/ሮ እታለማሁ ገዛኸኝ", "Procurement & Finance Executive", "የግዢና ፋይናንስ ስራ አስፈጻሚ", "5006",
+        "Manages budget preparation, financial reporting, procurement tendering and contract administration in accordance with government regulations.",
+        "በመንግሥት ደንቦች መሠረት የበጀት ዝግጅትን፣ የፋይናንሺያል ሪፖርትን፣ የግዢ ጨረታን እና የውል አስተዳደርን ያስተዳድራል።"),
+      dept("ict-office", "Information Communication Technology Office", "የኢንፎርሜሽን ኮሙኒኬሽን ቴክኖሎጂ ቢሮ", "Building A", "3", "303", "A-303",
+        "Mr. Dinber Getahun", "አቶ ድንበር ጌታሁን", "Information Communication Technology Executive", "የኢንፎርሜሽን ኮሙኒኬሽን ቴክኖሎጂ ስራ አስፈጻሚ", "5003",
+        "Maintains internal ICT systems, provides helpdesk support, manages network security and implements digital workplace tools.",
+        "ውስጣዊ አይሲቲ ስርዓቶችን ይጠብቃል፣ የሄልፕዴስክ ድጋፍ ይሰጣል፣ የኔትወርክ ደህንነትን ያስተዳድራል እና ዲጂታል የስራ ቦታ መሳሪያዎችን ያስፈጽማል።"),
+      dept("strategic-affairs", "Strategic Affairs Office", "የስትራቴጂክ ጉዳዮች ቢሮ", "Building A", "3", "302", "A-302",
+        "Mr. Azmach Desalegn", "አቶ አዝማች ደሳለኝ", "Executive of Strategic Affairs", "የስትራቴጂክ ጉዳዮች ስራ አስፈጻሚ", "5002",
+        "Coordinates the Ministry's strategic planning cycles, monitors implementation of the corporate plan and prepares performance reports.",
+        "የሚኒስቴሩን ስትራቴጂካዊ የዕቅድ ዑደቶች ያስተባብራል፣ የድርጅቱ ዕቅድ አፈጻጸምን ይከታተላል እና የአፈጻጸም ሪፖርቶችን ያዘጋጃል።"),
+      dept("basic-services", "Basic Infrastructure & General Services Office", "የመሠረተ ልማትና አጠቃላይ አገልግሎት ቢሮ", "Building A", "3", "304", "A-304",
+        "Mr. Dereje Tesfaye", "አቶ ይደነቃቸው ተሾመ", "Basic Infrastructure & General Services Executive", "የመሰረታዊ አገልግሎት ስራ አስፈጻሚ", "5004",
+        "Manages essential infrastructure, facilities and general support services across the Ministry.",
+        "አስፈላጊ መሠረተ ልማቶችን፣ ተቋማትን እና አጠቃላይ የድጋፍ አገልግሎቶችን በሚኒስቴሩ ውስጥ ያስተዳድራል።"),
+      dept("human-resource", "Competency & Human Resource Management Office", "የብቃትና ሰው ሀብት አስተዳደር ቢሮ", "Building A", "3", "305", "A-305",
+        "Mr. Adagne Assefa", "አቶ አዳኘ አሰፋ", "Competency & Human Resource Management Executive", "የብቃትና ሰው ሀብት አስተዳደር ስራ አስፈጻሚ", "5005",
+        "Oversees staff recruitment, competency development, performance management, payroll administration and employee welfare programmes.",
+        "የሠራተኛ ቅጥርን፣ የብቃት ልማትን፣ የአፈጻጸም አስተዳደርን፣ የደመወዝ አስተዳደርን እና የሠራተኛ ድህነት ፕሮግራሞችን ይቆጣጠራል።"),
     ],
-  },
-  {
-    id: "policy-strategy",
-    name: "Policy and Strategy Studies Research Executive",
-    amharic: "የፖሊሲና ስትራቴጂ ጥናትና ምርምር መሪ ስራ አስፈጻሚ",
-    icon: "scroll",
-    work: "Conducts policy and strategy studies and research to guide the Ministry's decision making.",
-    manager: {
-      name: "Dr. Bekuretsion Alemayehu",
-      position: "Lead Executive for Policy & Strategy Research / የፖሊሲና ስትራቴጂ ጥናትና ምርምር መሪ ስራ አስፈጻሚ",
-      photo: getManagerPhoto("Dr. Bekuretsion Alemayehu"),
-      telephone: "+251 11 552 6001",
-      email: "policy@mint.gov.et",
-    },
-    building: "Building A",
-    floor: "4",
-    room: "402",
-    officeNumber: "A-402",
-    status: "By Appointment",
-    departments: [],
   },
   {
     id: "innovation-fund",
@@ -284,9 +452,12 @@ const buildingAOffices: Office[] = [
     amharic: "የኢኖቬሽን ፈንድ ጽሕፈት ቤት",
     icon: "coins",
     work: "Administers the national innovation fund and finances high-impact technology and startup initiatives.",
+    workAmharic: "ብሔራዊ የኢኖቬሽን ፈንድ ያስተዳድራል እና ከፍተኛ ተፅዕኖ ያላቸው የቴክኖሎጂ እና ስታርታፕ ተነሳሽነቶችን ይሸልማል።",
     manager: {
       name: "Mrs. Adanech Tujo",
-      position: "Head of Innovation Fund Office / የኢኖቬሽን ፈንድ ጽ/ቤት ኃላፊ",
+      nameAmharic: "ወ/ሮ አዳነች ቱጆ",
+      position: "Head of Innovation Fund Office",
+      positionAmharic: "የኢኖቬሽን ፈንድ ጽ/ቤት ኃላፊ",
       photo: getManagerPhoto("Mrs. Adanech Tujo"),
       telephone: "+251 11 552 7001",
       email: "fund@mint.gov.et",
@@ -308,9 +479,12 @@ const buildingBOffices: Office[] = [
     amharic: "የአይሲቲና ዲጂታል ኢኮኖሚ ዘርፍ",
     icon: "network",
     work: "Develops national digital infrastructure, e-government services and the country's digital economy.",
+    workAmharic: "ብሔራዊ ዲጂታል መሠረተ ልማት፣ የኤሌክትሮኒክ መንግሥት አገልግሎቶች እና የሃገሪቱን ዲጂታል ኢኮኖሚ ያሳድጋል።",
     manager: {
       name: "H.E. Mr. Muluken Qere",
-      position: "State Minister for ICT & Digital Economy / የአይሲቲና ዲጂታል ኢኮኖሚ ሚኒስትር ዴኤታ",
+      nameAmharic: "ክቡር አቶ ሙሉቀን ቀሬ",
+      position: "State Minister for ICT & Digital Economy",
+      positionAmharic: "የአይሲቲና ዲጂታል ኢኮኖሚ ሚኒስቴር ዴኤታ",
       photo: getManagerPhoto("Mr. Muluken Qere"),
       telephone: "+251 11 552 4001",
       email: "ict@mint.gov.et",
@@ -321,19 +495,41 @@ const buildingBOffices: Office[] = [
     officeNumber: "B-301",
     status: "Open",
     departments: [
-      dept("ict-infrastructure", "ICT Infrastructure & Administration Office", "Building B", "1", "101", "B-101",
-        "Mr. Yonas Hailu", "Lead Executive for ICT Infrastructure & Administration / የአይሲቲ መሰረተ ልማትና አስተዳደር መሪ ስራ አስፈጻሚ", "4002",
-        "Plans and maintains national ICT infrastructure including data centres, broadband networks and government communication backbones."),
-      dept("digital-economy", "Digital Economy Development Office", "Building B", "2", "201", "B-201",
-        "Mr. Seyoum Mengesha", "Lead Executive for Digital Economy Development / የዲጂታል ኢኮኖሚ ልማት መሪ ስራ አስፈጻሚ", "4003",
-        "Develops policy frameworks and programmes to grow Ethiopia's digital economy, including fintech, e-commerce and digital entrepreneurship."),
-      dept("e-government", "E-Government Development & Administration Office", "Building B", "2", "202", "B-202",
-        "Mrs. Mihraj Zekiyu", "Lead Executive for E-Government Development & Administration / የኤሌክትሮኒክስ መንግስት ልማትና አስተዳደር መሪ ስራ አስፈጻሚ", "4004",
-        "Designs and delivers digital government services, manages the national e-services portal and oversees citizen-facing digital platforms."),
-      dept("records-archives", "Records & Archives Management Services", "Building B", "1", "102", "B-102",
-        "Mrs. Yenenesh Alemayehu", "Head of Records & Archives Management Services / የሪከርድና ማህደር ስራ አመራር አገልግሎት ኃላፊ", "4005",
-        "Manages official records, archives and information management systems for the Ministry."),
+      dept("ict-infrastructure", "ICT Infrastructure & Administration Office", "የአይሲቲ መሰረተ ልማትና አስተዳደር ቢሮ", "Building B", "1", "101", "B-101",
+        "Mr. Yonas Hailu", "አቶ ዮናስ ኃይሉ", "Lead Executive for ICT Infrastructure & Administration", "የአይሲቲ መሰረተ ልማትና አስተዳደር መሪ ስራ አስፈጻሚ", "4002",
+        "Plans and maintains national ICT infrastructure including data centres, broadband networks and government communication backbones.",
+        "የዳታ ማዕከሎችን፣ ብሮድባንድ ኔትወርኮችን እና የመንግሥት ኮሙዩኒኬሽን አርከርዎችን ጨምሮ ብሔራዊ አይሲቲ መሠረተ ልማት ያቅዳል እና ይጠብቃል።"),
+      dept("digital-economy", "Digital Economy Development Office", "የዲጂታል ኢኮኖሚ ልማት ቢሮ", "Building B", "2", "201", "B-201",
+        "Mr. Seyoum Mengesha", "አቶ ስዩም መንገሻ", "Lead Executive for Digital Economy Development", "የዲጂታል ኢኮኖሚ ልማት መሪ ስራ አስፈጻሚ", "4003",
+        "Develops policy frameworks and programmes to grow Ethiopia's digital economy, including fintech, e-commerce and digital entrepreneurship.",
+        "ፊንቴክ፣ ኢ-ኮሜርስ እና ዲጂታል ሥራ ፈጠራን ጨምሮ የኢትዮጵያን ዲጂታል ኢኮኖሚ ለማሳደግ የፖሊሲ ማዕቀፎችን እና ፕሮግራሞችን ያዘጋጃል።"),
+      dept("e-government", "E-Government Development & Administration Office", "የኤሌክትሮኒክ መንግሥት ልማትና አስተዳደር ቢሮ", "Building B", "2", "202", "B-202",
+        "Mrs. Mihraj Zekiyu", "ወ/ሮ ሚህራጅ ዘኪዩ", "Lead Executive for E-Government Development & Administration", "የኤሌክትሮኒክስ መንግስት ልማትና አስተዳደር መሪ ስራ አስፈጻሚ", "4004",
+        "Designs and delivers digital government services, manages the national e-services portal and oversees citizen-facing digital platforms.",
+        "ዲጂታል የመንግሥት አገልግሎቶችን ያዘጋጃል እና ያቀርባል፣ ብሔራዊ የኢ-አገልግሎቶች ፖርታልን ያስተዳድራል እና ዜጎችን ፊት ለፊት የሚያስተናግዱ ዲጂታል መድረኮችን ይቆጣጠራል።"),
     ],
+  },
+  {
+    id: "records-archives-sector",
+    name: "Records & Archives Management Services",
+    amharic: "የሪከርድና ማህደር ስራ አመራር አገልግሎት",
+    icon: "network",
+    work: "Manages official records, archives and information management systems for the Ministry.",
+    workAmharic: "ለሚኒስቴሩ ይፋዊ መዝገቦችን፣ ማህደሮችን እና የመረጃ አስተዳደር ስርዓቶችን ያስተዳድራል።",
+    manager: {
+      name: "Mrs. Yenenesh Alemayehu",
+      position: "Head of Records & Archives Management Services",
+      positionAmharic: "የሪከርድና ማህደር ስራ አመራር አገልግሎት ኃላፊ",
+      photo: "/images/manager%20images/yenenesh%20alemayehu.jpg",
+      telephone: "+251 11 552 4005",
+      email: "records@mint.gov.et",
+    },
+    building: "Building B",
+    floor: "1",
+    room: "102",
+    officeNumber: "B-102",
+    status: "Open",
+    departments: [],
   },
 ]
 
