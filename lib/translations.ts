@@ -5,7 +5,7 @@ export const t = {
     // Header
     backToHome: "Back to Home",
     digitalOfficeNav: "Digital Office\nNavigation Portal",
-    officialPortal: "Official Portal",
+    officialPortal: "Navigation Portal",
 
     // Footer
     allRightsReserved: "All Rights Reserved.",
@@ -101,15 +101,15 @@ export const t = {
     byAppointment: "By Appointment",
 
     // Building descriptions
-    buildingADesc: "Main administrative & executive offices",
-    buildingBDesc: "ICT, Digital Economy & Records",
+    buildingADesc: "",
+    buildingBDesc: "",
   },
 
   am: {
     // Header
     backToHome: "ወደ መነሻ ተመለስ",
     digitalOfficeNav: "ዲጂታል ቢሮ\nናቪጌሽን ፖርታል",
-    navigatorPortal: "ዲጂታል ቢሮ አመላካች ሲስተም  ",
+    officialPortal: "ዲጂታል ቢሮ አመላካች ሲስተም",
 
     // Footer
     allRightsReserved: "መብቱ በሕግ የተጠበቀ ነው።",
@@ -117,10 +117,10 @@ export const t = {
 
     // Welcome page
     ministryWayfinding: "የሚኒስቴር መምሪያ ስርዓት",
-    findAnyOffice: "ወዴት,
+    findAnyOffice: "ወዴት",
     anywhereInMint: "መሄድ ይፈልጋሉ?",
     welcomeDesc:
-      "የኢኖቬሽንና ቴክኖሎጂ ሚኒስቴር  ውስጥ ያሉ ቢሮዎችን፣ ክፍሎችን፣ ሥራ አስኪያጆችን፣ የክፍል ቁጥሮችን እና ህንጻዎችን በቅጽበት ይፈልጉ።",
+      "የኢኖቬሽንና ቴክኖሎጂ ሚኒስቴር ውስጥ ያሉ ቢሮዎችን፣ ክፍሎችን፣ ሥራ አስኪያጆችን፣ የክፍል ቁጥሮችን እና ህንጻዎችን በቅጽበት ይፈልጉ።",
     buildings: "ህንጻዎች",
     offices: "ቢሮዎች",
     departments: "ክፍሎች",
@@ -135,10 +135,10 @@ export const t = {
     // Leader titles on welcome page
     leaderTitles: {
       minister: "የኢኖቬሽንና ቴክኖሎጂ ሚኒስቴር ",
-      researchInnovation: "ሚኒስትር ዴኤታ፣ ምርምርና ፈጠራ",
-      ictDigital: "ሚኒስትር ዴኤታ፣ አይሲቲና ዲጂታል ኢኮኖሚ",
+      researchInnovation: "የምርምርና ኢኖቬሽን ልማት ሚኒስትር ዴኤታ",
+      ictDigital: "የአይሲቲና ዲጂታል ኢኮኖሚ ሚኒስትር ዴኤታ",
       advisory: "አማካሪ ሚኒስትር ዴኤታ",
-      headMinistersOffice: "የሚኒስትር ቢሮ ኃላፊ እና አጋርነት",
+      headMinistersOffice: "የሚኒስትር ጽ/ቤት ኃላፊ",
       chiefAdmin: "ዋና ስራ አስፈጻሚ፣ ስራ አፈጻጸምና አስተዳደር",
     },
     leaderNames: {
@@ -205,8 +205,8 @@ export const t = {
     byAppointment: "በቀጠሮ",
 
     // Building descriptions
-    buildingADesc: "ዋና አስተዳደራዊና ሥራ አስፈጻሚ ቢሮዎች",
-    buildingBDesc: "አይሲቲ፣ ዲጂታል ኢኮኖሚ እና መዝገቦች",
+    buildingADesc: "",
+    buildingBDesc: "",
   },
 } as const
 
