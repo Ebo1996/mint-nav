@@ -576,6 +576,36 @@ export function getDepartment(
   const office = building.offices.find((o) => o.id === officeId)
   if (!office) return undefined
   
+  // Handle special case for office-detail (when office has no departments)
+  if (departmentId === "office-detail") {
+    // Create a virtual department from office data
+    const virtualDepartment: Department = {
+      id: "office-detail",
+      name: office.name,
+      amharic: office.amharic,
+      detail: {
+        managerName: office.manager.name,
+        managerNameAmharic: office.manager.nameAmharic,
+        position: office.manager.position,
+        positionAmharic: office.manager.positionAmharic,
+        photo: office.manager.photo,
+        description: office.work,
+        descriptionAmharic: office.workAmharic,
+        building: office.building,
+        floor: office.floor,
+        room: office.room,
+        officeNumber: office.officeNumber,
+        telephone: office.manager.telephone,
+        extension: "",
+        email: office.manager.email,
+        location: `${office.building}, Floor ${office.floor}, Room ${office.room}`,
+        locationAmharic: `${office.building}፣ ፎቅ ${office.floor}፣ ክፍል ${office.room}`,
+        status: office.status,
+      }
+    }
+    return { building, office, department: virtualDepartment }
+  }
+  
   const department = office.departments.find((d) => d.id === departmentId)
   if (!department) return undefined
   

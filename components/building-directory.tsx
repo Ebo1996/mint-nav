@@ -312,7 +312,13 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
             <button
               key={office.id}
               type="button"
-              onClick={() => setSelectedOffice(office.id)}
+              onClick={() => {
+                if (office.departments.length === 0) {
+                  onViewDepartment(office.id, "office-detail");
+                } else {
+                  setSelectedOffice(office.id);
+                }
+              }}
               data-building={buildingId}
               style={{ animationDelay: `${i * 40}ms` }}
               className={`office-card group cursor-pointer animate-fade-in flex flex-col overflow-hidden rounded-xl border border-border bg-card text-left shadow-sm transition-colors duration-200 hover:border-primary/30 hover:bg-accent/20`}
