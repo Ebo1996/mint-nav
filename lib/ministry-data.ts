@@ -256,7 +256,7 @@ const buildingAOffices: Office[] = [
   },
   {
     id: "advisory-state-minister",
-    name: "Advisory State Minister Sector",
+    name: "Advisory State Minister",
     amharic: "አማካሪ ሚኒስቴር ዴኤታ ",
     icon: "scroll",
     work: "Provides advisory support on policy, communications, legal, audit, ethics, institutional change and social inclusion across the Ministry.",
@@ -368,8 +368,8 @@ const buildingAOffices: Office[] = [
   },
   {
     id: "innovation-research",
-    name: "State Minister for Research and Innovation ",
-    amharic: "የምርምርና ኢኖቬሽን ልማት ሚኒስትር ዴኤታ",
+    name: "Research and Innovation Development",
+    amharic: "የምርምርና ኢኖቬሽን ልማት ",
     icon: "flask",
     work: "Leads national research programs and drives technology transformation and innovation management.",
     workAmharic: "ብሔራዊ የምርምር ፕሮግራሞችን ይመራል እና የቴክኖሎጂ ሽግግር እና ኢኖቬሽን አስተዳደርን ያሳድጋል።",
@@ -475,7 +475,7 @@ const buildingAOffices: Office[] = [
 const buildingBOffices: Office[] = [
   {
     id: "ict-digital-economy",
-    name: "ICT and Digital Economy Sector",
+    name: "ICT and Digital Economy",
     amharic: "የአይሲቲና ዲጂታል ኢኮኖሚ ",
     icon: "network",
     work: "Develops national digital infrastructure, e-government services and the country's digital economy.",
