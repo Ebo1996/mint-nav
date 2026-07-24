@@ -30,20 +30,20 @@ export const t = {
 
     // Leader titles on welcome page
     leaderTitles: {
-      minister: "Minister of Innovation and Technology",
-      researchInnovation: "State Minister, Research & Innovation",
-      ictDigital: "State Minister, ICT & Digital Economy",
+      minister: "Minister, Ministry of Innovation and Technology",
+      researchInnovation: "State Minister for Research & Innovation Development",
+      ictDigital: "State Minister for ICT & Digital Economy",
       advisory: "Advisory State Minister",
-      headMinistersOffice: "Head of Minister's Office",
-      chiefAdmin: "Chief Administration",
+      headMinistersOffice: "Lead Executive for Innovation & Technology Partnership & Linkage",
+      chiefAdmin: "Chief Executive Officer of Operations / Administration",
     },
     leaderNames: {
       minister: "H.E. Dr. Belete Molla Getahun",
       researchInnovation: "H.E. Dr. Bayissa Bedada",
-      ictDigital: "H.E. Ato Muluken Qere",
+      ictDigital: "H.E. Mr. Muluken Qere",
       advisory: "H.E. Dr. Fozia Amin",
-      headMinistersOffice: "Ato Leul Seyoum",
-      chiefAdmin: "Ato Solomon Aynimar",
+      headMinistersOffice: "Mr. Leul Seyoum",
+      chiefAdmin: "Mr. Solomon Aynimar",
     },
 
     // Portal page
@@ -135,15 +135,15 @@ export const t = {
 
     // Leader titles on welcome page
     leaderTitles: {
-      minister: "የኢኖቬሽንና ቴክኖሎጂ ሚኒስቴር ",
-      researchInnovation: "የምርምርና ኢኖቬሽን ልማት ሚኒስትር ዴኤታ",
-      ictDigital: "የአይሲቲና ዲጂታል ኢኮኖሚ ሚኒስትር ዴኤታ",
-      advisory: "አማካሪ ሚኒስትር ዴኤታ",
-      headMinistersOffice: "የሚኒስትር ጽ/ቤት ኃላፊ",
-      chiefAdmin: "ዋና ስራ አስፈጻሚ፣ ስራ አፈጻጸምና አስተዳደር",
+      minister: "የኢኖቬሽንና ቴክኖሎጂ ሚኒስቴር ሚኒስትር ",
+      researchInnovation: "የምርምርና ኢኖቬሽን ልማት ሚኒስቴር ዴኤታ",
+      ictDigital: "የአይሲቲና ዲጂታል ኢኮኖሚ ሚኒስቴር ዴኤታ",
+      advisory: "አማካሪ ሚኒስቴር ዴኤታ",
+      headMinistersOffice: "የኢኖቬሽንና ቴክኖሎጂ የትብብርና ትስስር ጉዳዮች መሪ ስራ አስፈጻሚ",
+      chiefAdmin: "የስራ አመራር ዋና ስራ አስፈጻሚ",
     },
     leaderNames: {
-      minister: "ዶ/ር በለጠ ሞላ ጌታሁን",
+      minister: "ክቡር ዶ/ር በለጠ ሞላ ጌታሁን",
       researchInnovation: "ዶ/ር ባይሳ በዳዳ",
       ictDigital: "አቶ ሙሉቀን ቀሬ",
       advisory: "ዶ/ር ፎዚያ አሚን",

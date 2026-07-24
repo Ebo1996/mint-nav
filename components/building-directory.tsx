@@ -187,7 +187,9 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
 
                 <div className="w-full shrink-0 space-y-2 border-t border-border pt-3">
                   <div className="px-1.5">
-                    <p className="truncate text-sm font-bold text-foreground">{activeOffice.manager.name}</p>
+                    <p className="truncate text-sm font-bold text-foreground">
+                      {language === "am" && activeOffice.manager.nameAmharic ? activeOffice.manager.nameAmharic : activeOffice.manager.name}
+                    </p>
                     <p className="truncate text-xs text-muted-foreground">
                       {language === "am" ? activeOffice.manager.positionAmharic : activeOffice.manager.position}
                     </p>
@@ -263,7 +265,7 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
                             {tr.manager}
                           </p>
                           <p className="truncate text-sm font-bold text-foreground">
-                            {deptItem.detail.managerName}
+                            {language === "am" && deptItem.detail.managerNameAmharic ? deptItem.detail.managerNameAmharic : deptItem.detail.managerName}
                           </p>
                         </div>
                       </div>
@@ -352,7 +354,9 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
 
                 {/* Manager info */}
                 <div className="mt-1 border-t border-border pt-2 flex flex-col gap-0.5">
-                  <p className="text-[13px] font-bold text-foreground">{office.manager.name}</p>
+                  <p className="text-[13px] font-bold text-foreground">
+                    {language === "am" && office.manager.nameAmharic ? office.manager.nameAmharic : office.manager.name}
+                  </p>
                   <p className="text-[11px] text-muted-foreground line-clamp-2">
                     {language === "am" ? office.manager.positionAmharic : office.manager.position}
                   </p>
