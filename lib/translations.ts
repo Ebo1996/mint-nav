@@ -35,7 +35,7 @@ export const t = {
       ictDigital: "State Minister for ICT & Digital Economy",
       advisory: "Advisory State Minister",
       headMinistersOffice: "Lead Executive for Innovation & Technology Partnership & Linkage",
-      chiefAdmin: "Chief Executive Officer of Operations / Administration",
+      chiefAdmin: "Chief Administration",
     },
     leaderNames: {
       minister: "H.E. Dr. Belete Molla Getahun",

@@ -412,7 +412,7 @@ const buildingAOffices: Office[] = [
     manager: {
       name: "Mr. Solomon Aynimar",
       nameAmharic: "አቶ ሰለሞን አይኒማር",
-      position: "Chief  Administration",
+      position: "Chief Administration",
       positionAmharic: "የስራ አመራር ዋና ስራ አስፈጻሚ",
       photo: getManagerPhoto("Mr. Solomon Aynimar"),
       telephone: "+251 11 552 5001",
