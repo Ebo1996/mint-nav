@@ -117,11 +117,11 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
   }
 
   return (
-    <div className="mx-auto flex h-full w-full max-w-[1400px] flex-col overflow-hidden px-4 py-3 md:px-8 md:py-4">
+    <div className="mx-auto flex h-full w-full max-w-[1400px] flex-col overflow-hidden px-4 py-2 md:px-8 md:py-3">
 
       {/* Breadcrumb + title */}
-      <div className="mb-3 shrink-0 animate-fade-in">
-        <nav aria-label="Breadcrumb" className="mb-1 flex items-center gap-1.5 text-xs text-muted-foreground">
+      <div className="mb-2 shrink-0 animate-fade-in">
+        <nav aria-label="Breadcrumb" className="mb-0.5 flex items-center gap-1.5 text-xs text-muted-foreground">
           <button type="button" onClick={onHome}
             className={`inline-flex cursor-pointer items-center gap-1 rounded-md px-1 py-0.5 font-medium transition-colors ${theme.accentText} hover:opacity-80`}>
             <Home className="size-3.5" /> {tr.home}
@@ -157,11 +157,11 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
         /* ── Focused office view ── */
         <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
           <button type="button" onClick={() => setSelectedOffice(null)}
-            className={`mb-3 inline-flex w-fit shrink-0 cursor-pointer items-center gap-1.5 rounded-xl border border-border bg-card px-3 py-1.5 text-xs font-semibold text-foreground shadow-sm transition-all ${theme.borderHover} ${theme.accentText} hover:-translate-x-0.5`}>
+            className={`mb-2 inline-flex w-fit shrink-0 cursor-pointer items-center gap-1.5 rounded-xl border border-border bg-card px-3 py-1.5 text-xs font-semibold text-foreground shadow-sm transition-all ${theme.borderHover} ${theme.accentText} hover:-translate-x-0.5`}>
             <ArrowLeft className="size-3.5" /> {tr.allOffices}
           </button>
 
-          <div className="grid min-h-0 flex-1 animate-fade-in grid-cols-1 gap-4 overflow-hidden md:grid-cols-[minmax(0,300px)_1fr]">
+          <div className="grid min-h-0 flex-1 animate-fade-in grid-cols-1 gap-3 overflow-hidden md:grid-cols-[minmax(0,280px)_1fr]">
 
             {/* ── Office info panel ── */}
             <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border bg-card"
@@ -214,8 +214,8 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
             </div>
 
             {/* ── Departments panel ── */}
-            <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-border bg-muted/20 p-4">
-              <div className="mb-4 flex shrink-0 items-center justify-between">
+            <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-border bg-muted/20 p-3">
+              <div className="mb-2 flex shrink-0 items-center justify-between">
                 <h3 className="flex items-center gap-2 text-sm font-bold tracking-tight text-foreground">
                   <span className={`flex size-7 items-center justify-center rounded-lg ${theme.badgeBg}`}>
                     <Users className={`size-4 ${theme.accentText}`} />
@@ -237,8 +237,14 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
                   <p className="text-xs text-muted-foreground">{tr.noDeptContact}</p>
                 </div>
               ) : (
-                <div className="grid min-h-0 flex-1 grid-cols-1 gap-4 overflow-y-auto sm:grid-cols-2 lg:grid-cols-3">
-                  {activeOffice.departments.map((deptItem, idx) => (
+                <div className={`grid flex-1 gap-3 ${
+                  activeOffice.departments.length <= 3 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' :
+                  activeOffice.departments.length <= 6 ? 'grid-cols-2 lg:grid-cols-3' :
+                  'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+                }`}>
+                  {activeOffice.departments.map((deptItem, idx) => {
+                    const isCompact = activeOffice.departments.length > 6;
+                    return (
                     <button
                       key={deptItem.id}
                       type="button"
@@ -247,7 +253,7 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
                       className={`group/dept animate-fade-in flex cursor-pointer flex-col rounded-2xl border bg-card text-left shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${theme.borderHover}`}
                     >
                       {/* ── Manager chip ── */}
-                      <div className="m-3 mb-0 flex items-center gap-3.5 rounded-xl bg-accent/60 px-3.5 py-3">
+                      <div className={`m-2 mb-0 flex items-center gap-2 rounded-xl bg-accent/60 ${isCompact ? 'px-2.5 py-2' : 'px-3.5 py-3'}`}>
                         <div
                           className="shrink-0 rounded-full p-[3px]"
                           style={{ boxShadow: `0 0 0 2.5px rgba(${theme.primaryRgb},0.5)` }}
@@ -257,38 +263,38 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
                             alt={deptItem.detail.managerName}
                             width={56}
                             height={56}
-                            className="size-14 rounded-full object-cover object-top"
+                            className={`${isCompact ? 'size-10' : 'size-14'} rounded-full object-cover object-top`}
                           />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-xs font-semibold text-muted-foreground">
+                          <p className={`${isCompact ? 'text-[10px]' : 'text-xs'} font-semibold text-muted-foreground`}>
                             {tr.manager}
                           </p>
-                          <p className="truncate text-sm font-bold text-foreground">
+                          <p className={`truncate ${isCompact ? 'text-xs' : 'text-sm'} font-bold text-foreground`}>
                             {language === "am" && deptItem.detail.managerNameAmharic ? deptItem.detail.managerNameAmharic : deptItem.detail.managerName}
                           </p>
                         </div>
                       </div>
 
                       {/* ── Body ── */}
-                      <div className="flex flex-1 flex-col px-4 pt-4 pb-3">
-                        <h3 className="text-[15px] font-black leading-snug text-foreground">
+                      <div className={`flex flex-1 flex-col ${isCompact ? 'px-3 pt-2 pb-2' : 'px-4 pt-4 pb-3'}`}>
+                        <h3 className={`${isCompact ? 'text-xs' : 'text-[15px]'} font-black leading-snug text-foreground line-clamp-2`}>
                           {language === "am" && deptItem.amharic ? deptItem.amharic : deptItem.name}
                         </h3>
 
                         {/* Building + Floor pills */}
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-foreground/75">
-                            <Building2 className="size-3.5 text-primary" />
+                        <div className={`${isCompact ? 'mt-1.5' : 'mt-3'} flex flex-wrap gap-1.5`}>
+                          <span className={`inline-flex items-center gap-1 rounded-full bg-accent ${isCompact ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-xs'} font-semibold text-foreground/75`}>
+                            <Building2 className={`${isCompact ? 'size-2.5' : 'size-3.5'} text-primary`} />
                             {language === "am"
                               ? deptItem.detail.building === "Building A" ? "ህንጻ ሀ" : "ህንጻ ለ"
                               : deptItem.detail.building === "Building A" ? "Bldg A" : "Bldg B"}
                           </span>
-                          <span className="inline-flex items-center rounded-full bg-[#c08a2e]/12 px-3 py-1 text-xs font-semibold text-[#9a6a1e]">
+                          <span className={`inline-flex items-center rounded-full bg-[#c08a2e]/12 ${isCompact ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-xs'} font-semibold text-[#9a6a1e]`}>
                             {language === "am" ? "ፎቅ " : "Floor "}{deptItem.detail.floor}
                           </span>
                           {deptItem.detail.room && (
-                            <span className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">
+                            <span className={`inline-flex items-center rounded-full bg-muted ${isCompact ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-xs'} font-semibold text-muted-foreground`}>
                               {language === "am" ? "ክፍ. " : "Room "}{deptItem.detail.room}
                             </span>
                           )}
@@ -296,12 +302,12 @@ export function BuildingDirectory({ language, buildingId, focusOfficeId, onHome,
                       </div>
 
                       {/* ── Footer CTA ── */}
-                      <div className={`flex items-center gap-1.5 border-t border-border px-4 py-3 ${theme.accentText}`}>
-                        <span className="text-xs font-black uppercase tracking-widest">{tr.viewDetails}</span>
-                        <ArrowRight className="size-3.5 transition-transform duration-300 group-hover/dept:translate-x-1" />
+                      <div className={`flex items-center gap-1.5 border-t border-border ${isCompact ? 'px-3 py-2' : 'px-4 py-3'} ${theme.accentText}`}>
+                        <span className={`${isCompact ? 'text-[10px]' : 'text-xs'} font-black uppercase tracking-widest`}>{tr.viewDetails}</span>
+                        <ArrowRight className={`${isCompact ? 'size-3' : 'size-3.5'} transition-transform duration-300 group-hover/dept:translate-x-1`} />
                       </div>
                     </button>
-                  ))}
+                  )})}
                 </div>
               )}
             </div>

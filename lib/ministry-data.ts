@@ -368,8 +368,8 @@ const buildingAOffices: Office[] = [
   },
   {
     id: "innovation-research",
-    name: "Innovation and Research Sector",
-    amharic: "የኢኖቬሽንና ምርምር ",
+    name: "State Minister for Research and Innovation ",
+    amharic: "የምርምርና ኢኖቬሽን ልማት ሚኒስትር ዴኤታ",
     icon: "flask",
     work: "Leads national research programs and drives technology transformation and innovation management.",
     workAmharic: "ብሔራዊ የምርምር ፕሮግራሞችን ይመራል እና የቴክኖሎጂ ሽግግር እና ኢኖቬሽን አስተዳደርን ያሳድጋል።",
