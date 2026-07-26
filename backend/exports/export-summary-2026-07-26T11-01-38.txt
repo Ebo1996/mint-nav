@@ -1,0 +1,40 @@
+
+Ministry Data Export Summary
+============================
+Export Date: 7/26/2026, 2:01:38 PM
+Database: ministry-admin
+
+Data Summary:
+-------------
+Buildings:   2
+Offices:     8
+Departments: 28
+Users:       1
+
+Buildings List:
+---------------
+1. Building A (A) - building-a
+2. Building B (B) - building-b
+
+Offices List:
+-------------
+1. Minister's Office - ministers-office (Building: building-a)
+2. Advisory State Minister - advisory-state-minister (Building: building-a)
+3. Head of Minister's Office - partnership-alliance (Building: building-a)
+4. Research and Innovation Development - innovation-research (Building: building-a)
+5. Chief Administration - administration (Building: building-a)
+6. Innovation Fund Office - innovation-fund (Building: building-a)
+7. ICT and Digital Economy - ict-digital-economy (Building: building-b)
+8. Records & Archives Management Services - records-archives-sector (Building: building-b)
+
+Export Files:
+-------------
+1. Full JSON: ministry-data-2026-07-26T11-01-38.json
+2. Compact JSON: ministry-data-2026-07-26T11-01-38.min.json
+3. Summary: export-summary-2026-07-26T11-01-38.txt
+
+Notes:
+------
+- User passwords are excluded from the export for security
+- All data includes MongoDB metadata (_id, createdAt, updatedAt)
+- Data can be imported back using the import-data script

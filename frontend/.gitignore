@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+build/
+
+# Environment variables
+.env*.local
+.env
+
+# Vercel
+.vercel/
+
+# Testing
+coverage/
+
+# Misc
+.DS_Store
+*.log
+npm-debug.log*
